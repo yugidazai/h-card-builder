@@ -1,5 +1,5 @@
 # hCard Builder
-A simple ReactJS app to allow users to edit their personal details.
+A simple ReactJS app to allow users to generate their hCards.
 
 ## Scope
 The app has 3 main parts and their positions are responsive based on different screen widths

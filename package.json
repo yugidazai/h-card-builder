@@ -7,15 +7,16 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "validator": "^9.1.2"
   },
   "scripts": {
     "start": "npm-run-all -p watch-css start-js",
     "start-js": "react-scripts start",
     "build": "npm-run-all build-css build-js",
     "build-js": "react-scripts build",
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "build-css": "node-sass-chokidar src/assets/styles/ -o src/assets/styles/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/assets/styles/ -o src/assets/styles/ --watch --recursive",
     "test": "react-scripts test --env=jsdom"
   },
   "devDependencies": {}
