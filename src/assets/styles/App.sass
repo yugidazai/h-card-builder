@@ -1,0 +1,247 @@
+// RESET
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+  margin: 0
+  padding: 0
+  font-size: 100%
+// HTML5 display-role reset for older browsers
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+  display: block
+body
+  line-height: 1
+*
+  outline: none
+  box-sizing: border-box
+
+// FONTS
+$font-path: "../fonts/interface/"
+
+@font-face
+  font-family: "interface"
+  src: url("#{$font-path}interface_regular-webfont.eot")
+  src: url("#{$font-path}interface_regular-webfont.eot?#iefix") format("embedded-opentype"), url("#{$font-path}interface_regular-webfont.woff") format("woff"), url("#{$font-path}interface_regular-webfont.ttf") format("truetype")
+  font-weight: 400
+  font-style: normal
+
+@font-face
+  font-family: "interface"
+  src: url("#{$font-path}interface_regular_italic-webfont.eot")
+  src: url("#{$font-path}interface_regular_italic-webfont.eot?#iefix") format("embedded-opentype"), url("#{$font-path}interface_regular_italic-webfont.woff") format("woff"), url("#{$font-path}interface_regular_italic-webfont.ttf") format("truetype")
+  font-weight: 400
+  font-style: italic
+
+@font-face
+  font-family: "interface"
+  src: url("#{$font-path}interface_bold-webfont.eot")
+  src: url("#{$font-path}interface_bold-webfont.eot?#iefix") format("embedded-opentype"), url("#{$font-path}interface_bold-webfont.woff") format("woff"), url("#{$font-path}interface_bold-webfont.ttf") format("truetype")
+  font-weight: 600
+  font-style: normal
+
+// VARIABLES
+$white:      #FFFFFF
+$black:      #000
+$grey-light: #DEDEDE
+$red:        #C90E25
+$blue-bold:  #39526d
+
+$screen-md-min: 768px
+$screen-lg-min: 1200px
+
+// ANIMATIONS
+@keyframes spin-clockwise
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+// TAGS
+body
+  font-family: interface, sans-serif
+  font-size: 14px
+  line-height: 1.5em
+  color: $blue-bold
+a, .link
+  text-decoration: underline
+  cursor: pointer
+  &:hover
+    text-decoration: none
+
+h1
+  width: 100%
+  font-size: 40px
+  font-weight: bold
+
+form
+  display: block
+
+// BUTTONS
+button
+  color: $white
+  font-size: 18px
+  border-radius: 4px
+  display: inline-block
+  padding: 10px
+
+// MAIN
+.app
+  @media screen and (min-width: $screen-md-min)
+    display: flex
+    min-height: 100vh
+
+.hcard-builder-form
+  padding-top: 10px
+  @media screen and (min-width: $screen-md-min)
+    margin-top: auto
+
+.loader
+  font-size: 24px
+  font-weight: bold
+  position: relative
+.spinner
+  display: block
+  position: relative
+  animation: spin-clockwise 1.5s linear infinite
+  &:before
+    content: ''
+    border: 5px inset $red
+    display: block
+    width: 50px
+    height: 50px
+    border-radius: 100%
+
+.container-submitting
+  position: absolute
+  top: -3px
+  left: 35%
+
+.container-submitted
+  width: 300px
+  height: 160px
+  position: absolute
+  top: 50%
+  left: 10%
+  @media screen and (min-width: $screen-md-min)
+    left: 16%
+  background-color: #ddd
+  border-radius: 2px
+  box-shadow: 0px 1px 5px 2px
+  text-align: center
+  padding: 15px 0px
+  font-size: 1.5em
+  .content-title
+    font-weight: bold
+    padding-bottom: 10px
+  .content-subtitle
+    padding-bottom: 10px
+  .confirmed
+    color: $black
+
+.btn-layout
+  text-align: center
+
+.create-hcard-btn
+  background-color: #16a8f1
+  border-bottom: solid 2px #0f73a5
+
+.upload-avatar-btn
+  background-color: #627c8a
+  border-bottom: solid 2px #3e5561
+
+.create-hcard-btn:disabled
+  cursor: not-allowed
+
+.create-hcard-btn,
+.upload-avatar-btn
+  border-radius: 4px
+  width: 135px
+  padding-left: 5px
+  font-size: 1.3em
+  &:hover, &:active
+    color: darken($white, 15)
+    a
+      color: darken($white, 15)
+    &:before
+      left: 35px
+    button
+      &[type="submit"]
+        color: darken($white, 15)
+
+.address-title, .details-title, .row
+  hr
+    margin-top: 0
+
+.row
+  margin: 20px 0
+
+.hcard-panel
+  padding: 40px 10px
+  @media screen and (min-width: $screen-md-min)
+    padding: 40px 20px
+
+.hcard-builder
+  background-color: $white
+  .form-input
+    margin-top: 10px
+    input
+      &[type="text"]
+        font-size: 14px
+        line-height: 1.5em
+        display: block
+        padding: 10px
+        width: 100%
+        border: 1px solid $grey-light
+        border-radius: 3px
+    .form-error.fail
+      color: $red
+      font-style: italic
+
+.hcard-preview
+  background-color: #dcdcdc
+  display: flex
+  align-items: center
+
+.preview-container
+  width: 100%
+  padding: 0 20px
+  .preview-title
+    text-align: right
+    color: #717171
+    font-size: 1.3em
+  .preview-layout
+    background-color: $white
+    padding: 0 0 10px
+    border-bottom: solid 2px #b7b4b4
+    .avatar
+      position: absolute
+      right: 15px
+      top: 15px
+      border-bottom: solid 2px #b7b4b4
+      border-left: solid 1px #b7b4b4
+      border-right: solid 1px #b7b4b4
+      height: 100px
+      width: 80px
+      -webkit-background-size: contain
+      background-size: contain
+      background-position: center
+      background-repeat: no-repeat
+      background-color: $white
+      z-index: 10
+    .row
+      padding-left: 20px
+      padding-right: 20px
+      font-size: 1.1em
+      margin: 20px 0
+      .preview-text, .preview-label
+        height: 30px
+        padding-top: 9px
+        border-bottom: solid 1px #bdbcbc
+      .preview-text
+        font-size: 1.2em
+        font-weight: 600
+    .fn
+      min-height: 100px
+      font-size: 2.5em
+      font-weight: 600
+      color: $white
+      padding-top: 55px
+      margin-top: 0
+      background-color: #344954

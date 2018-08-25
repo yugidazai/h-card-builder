@@ -1,6 +1,7 @@
+import validator  from "validator";
 import { Config } from '../config';
 
-const validateRequiredFields = (requiredFields, values) => {
+export const validateRequiredFields = (requiredFields, values) => {
   let errors = {};
   requiredFields.forEach(field => {
     if (!values[field]) {
@@ -11,17 +12,10 @@ const validateRequiredFields = (requiredFields, values) => {
   return errors;
 };
 
-const isMobilePhone = formattedNumber =>
-  return validator.isMobilePhone(formattedNumber, Config.COUNTRY)
+export const isMobilePhone = formattedNumber =>
+  validator.isMobilePhone(formattedNumber, Config.COUNTRY)
 
-const isEamil = email => email && validator.isEmail(email)
+export const isEmail = email => email && validator.isEmail(email)
 
-const isPostCode = postCode =>
-  postCode && validator.isPostalCode(postCode, Config.COUNTRY)
-
-export {
-  validateRequiredFields,
-  isMobilePhone,
-  isEamil,
-  isPostCode
-}
+export const isPostCode = postCode =>
+  postCode && validator.isPostalCode(postCode, Config.COUNTRY.substring(3))

@@ -1,4 +1,2 @@
-export {
-  COUNTRY: "en-AU",
-  REQUEST_TIMEOUT: 2000
-};
+export const COUNTRY = "en-AU";
+export const REQUEST_TIMEOUT = 2000;
