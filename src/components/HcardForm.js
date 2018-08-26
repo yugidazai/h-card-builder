@@ -108,6 +108,11 @@ class HcardForm extends Component {
         <div className="col-sm-12">
           <h1>hCard Builder</h1>
         </div>
+        <div className="col-sm-12 form-hint">
+          <p>
+            <i>Please fillout all fields to create an hCard.</i>
+          </p>
+        </div>
         <form className="hcard-builder-form" onSubmit={this.onSubmit}>
           <div className="row col-sm-12 details">
             <div className="details-title">
